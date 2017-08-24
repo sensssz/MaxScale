@@ -298,6 +298,7 @@ add_test_executable(longblob.cpp longblob longblob LABELS readwritesplit readcon
 
 # Test with extremely big blob inserting/selecting with > 16 mb data blocks
 add_test_executable(mxs1110_16mb.cpp mxs1110_16mb longblob_filters LABELS readwritesplit readconnroute HEAVY REPL_BACKEND)
+set_tests_properties(mxs1110_16mb PROPERTIES TIMEOUT 3600)
 
 # Schemarouter implicit database detection
 add_test_executable(mxs1310_implicit_db.cpp mxs1310_implicit_db mxs1310_implicit_db LABELS schemarouter REPL_BACKEND)

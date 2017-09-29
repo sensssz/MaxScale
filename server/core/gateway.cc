@@ -2078,6 +2078,9 @@ int main(int argc, char **argv)
     ss_dassert(worker);
     worker->run();
 
+    /*< Stop all the monitors */
+    monitorStopAll();
+
     /** Stop administrative interface */
     mxs_admin_shutdown();
 
@@ -2109,9 +2112,6 @@ int main(int argc, char **argv)
      * Wait the flush thread.
      */
     thread_wait(log_flush_thr);
-
-    /*< Stop all the monitors */
-    monitorStopAll();
 
     /*< Call finish on all modules. */
     modules_process_finish();
